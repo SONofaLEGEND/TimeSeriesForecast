@@ -1,0 +1,44 @@
+<div class="min-h-screen flex justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 bg-no-repeat bg-cover relative items-center"
+	style="background-image: url(../../../../assets/images/upbg.jpg);">
+	<div class="absolute bg-black opacity-60 inset-0 z-0"></div>
+	<div class="sm:max-w-lg w-full p-10 bg-white rounded-xl z-10">
+		<div class="text-center">
+			<h2 class="mt-5 text-3xl font-bold text-gray-900">
+				File Upload!
+			</h2>
+			<p class="mt-2 text-sm text-gray-400">Upload a CSV file containing sales data to predict future sales.</p>
+		</div>
+        <form class="mt-8 space-y-3" action="#" method="POST">
+                    
+                    <div class="grid grid-cols-1 space-y-2">
+                                    <label class="text-sm font-bold text-gray-500 tracking-wide">Attach Document</label>
+                        <div class="flex items-center justify-center w-full">
+                            <label class="flex flex-col rounded-lg border-4 border-dashed w-full h-60 p-10 group text-center">
+                                <div class="h-full w-full text-center flex flex-col items-center justify-center">
+                                    
+                                    <p class="pointer-none text-gray-500 "><span class="text-sm">Drag and drop</span> files here <br /> or <a href="" id="" class="text-blue-600 hover:underline">select a file</a> from your computer</p>
+                                </div>
+                                <input type="file" class="left-0 opacity-0 w-full h-full cursor-pointer" (change)="onFileSelected($event)">
+                            </label>
+                            
+                        </div>
+                    </div>
+                            <p class="text-sm text-gray-300">
+                                <span>File type: CSV only</span>
+                            </p>
+                    <div>
+                        <button *ngIf="correctFile" (click)="navPredict()" class="my-5 w-full flex justify-center bg-blue-500 text-gray-100 p-4 rounded-full tracking-wide
+                                    font-semibold  focus:outline-none focus:shadow-outline hover:bg-blue-600 shadow-lg cursor-pointer transition ease-in duration-300">
+                        Upload
+                        </button>
+                
+                    <ng-container *ngIf="!correctFile">
+                        <div class="grid grid-cols-1 space-y-2">
+                                <textarea class="text-base p-2 border border-gray-300 border-transparent focus:outline-none rounded-lg outline-none focus:border-indigo-500" >{{errorMessage}}</textarea>
+                        </div>
+                    </ng-container>
+                    
+                    </div>
+        </form>
+	</div>
+</div>
